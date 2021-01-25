@@ -1,0 +1,23 @@
+@import "compass/css3";
+
+* {
+   box-sizing: border-box;
+   
+   background: linear-gradient(rgba(50,0,0,0.3),rgba(50,0,0,0.3)),
+      url(https://subtlepatterns.com/patterns/wood_pattern.png);
+}
+
+h1 {
+    text-align: center;
+    font-size: 80px;
+    font-family: url'https://fonts.googleapis.com/css?family=Permanent+Marker',
+    color: white;
+}
+
+body {
+   background-color: grey;
+}
+ 
+
+
+
