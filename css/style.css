@@ -1,23 +1,48 @@
-@import "compass/css3";
-
 * {
-   box-sizing: border-box;
-   
+   height: 40%;
    background: linear-gradient(rgba(50,0,0,0.3),rgba(50,0,0,0.3)),
       url(https://subtlepatterns.com/patterns/wood_pattern.png);
+      background-color: grey;
+}
+
+body {
+    
+    color: snow;
+    font-family: 'Permanent Marker', cursive; 
 }
 
 h1 {
     text-align: center;
     font-size: 80px;
-    font-family: url'https://fonts.googleapis.com/css?family=Permanent+Marker',
-    color: white;
+    color: snow;
+    font-family: 'Permanent Marker', cursive;  
 }
 
-body {
-   background-color: grey;
+.grid {
+    border: 6px solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    height: 500px;
+    width: 900px;
 }
  
+.grid div {
+    height: 20px;
+    width: 20px;
+}
+
+.player-one {
+    background-color: yellow;
+    border-radius: 10px;
+}
+
+.player-two {
+    background-color: blue;
+    border-radius: 10px;
+}
+
 
 
 
