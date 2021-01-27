@@ -1,17 +1,17 @@
 // Selectors
-var tableRow = document.getElementsByTagName('tr')
-var tableCell = document.getElementsByTagName('td')
-var tableSlot = document.querySelector('.slot')
-const playerTurn = document.querySelector('.player-turn')
-const reset = document.querySelector('.rest')
+var tableRow = document.getElementsByTagName('tr');
+var tableCell = document.getElementsByTagName('td');
+var tableSlot = document.querySelector('.slot');
+const playerTurn = document.querySelector('.player-turn');
+const reset = document.querySelector('.rest');
 
-for (i = 0; i < tableData.length; i ++){
-    tableData[i].addEventListener('click', (event) => {
-        console.log(`${event.target.parentElement.rowIndex},${event.target.cellIndex}`)
+for (i = 0; i < tableCell.length; i ++){
+    tableCell[i].addEventListener('click', (event) => {
+        console.log(`${event.target.parentElement.rowIndex}, ${event.target.cellIndex}`)
     });
 };
 
-// Game logic Let Player state name pre chosen color selection for players
+// Game logic Lets Player state name pre chosen color selection for players
 while (!player1) {
     var player1 = window.prompt('Player One: Enter your name. You will be red.');
 };
@@ -23,9 +23,10 @@ while (!player2) {
 var player2Color = 'yellow';
 
 var currentPlayer = 1;
-playerTurn.textContent = `${player1}'s turn!`
+playerTurn.textContent = `${player1}'s turn!`;
 
-Array.prototype.forEach.call(tableData, (cell) => {
+// Go through each slot/cell of game make sure they are white and add eventListener
+Array.prototype.forEach.call(tableCell, (cell) => {
     cell.addEventListener('click', changeColor);
     // Set all slots to white for new game.
     cell.style.backgroundColor = 'white';
@@ -41,6 +42,9 @@ function changeColor(event) {
             row.push(tableRow[i].children[column]);
             if (currentPlayer === 1) {
                 row[0].style.backgroundColor = player1Color;
+                if (horizontalCheck()) {
+                    return (alert('Winner!!!!!'));
+                }
                 playerTurn.textContent = `${player2}'s turn!`
                 return currentPlayer = 2
             } else {
@@ -52,4 +56,29 @@ function changeColor(event) {
         }
     }
    
+}
+
+function colorMatchCheck(one, two, three, four) {
+    return (one == two && one === three && one === four && one !== 'white');
+}
+
+function horizontalCheck() {
+    for (let row = 0; row < tableRow.length; row++) {
+        for (let col = 0; col < 4; col++) {
+            if (colorMatchCheck(tableRow[row].children[col].style.backgroundColor, tableRow[row].children[col+1].style.backgroundColor, tableRow[row].children[col +2].style.backgroundColor, tableRow[row].children[col+3].style.backgroundColor)) {
+                return true;
+            }
+        }
+
+    }
+}
+
+function verticalCheck() {
+    for (let col = 0; col < 7; col++) {
+        for (let row = 0; row < 3; row++) {
+            if (colorMatchCheck(tableRow[row].children[col].style.backgroundColor, tableRow[row+1].children[col].style.backgroundColor, tableRow[row+2].children[col].style.backgroundColor, tableRow[row+3].children[col].style.backgroundColor))
+            return true;
+        }
+    }
+
 }

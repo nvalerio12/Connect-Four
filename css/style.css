@@ -1,4 +1,6 @@
 *{
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
     font-family: 'Londrina Shadow', cursive;
 }
@@ -36,7 +38,7 @@ h1 {
 }
 
 .slot:hover {
-    background-color:red;
+    background-color: grey;
 }
 
 .reset {
