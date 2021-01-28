@@ -135,3 +135,13 @@ function drawCheck() {
     
     }
 }
+
+// reset game function 
+
+reset.addEventListener('click', () =>{
+    tableSlot.forEach(slot => {
+        slot.style.backgroundColor = 'white'
+    });
+    playerTurn.style.backgroundColor = 'black';
+    return(currentPlayer == 1 ? playerTurn.textContent = `${player1}'s turn` : `${player2}'s turn`);
+})
