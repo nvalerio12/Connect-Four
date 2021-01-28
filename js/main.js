@@ -42,16 +42,34 @@ function changeColor(event) {
             row.push(tableRow[i].children[column]);
             if (currentPlayer === 1) {
                 row[0].style.backgroundColor = player1Color;
-                if (horizontalCheck()) {
-                    return (alert('Winner!!!!!'));
+                if (horizontalCheck() || verticalCheck() || diagonalCheck1() || diagonalCheck2())  {
+                    playerTurn.textContent = `${player1} wins!!!`;
+                    playerTurn.style.color = player1Color;
+                    return (alert(`${player1} WINS!!!!!`));
+                } else if (drawCheck()) {
+                    playerTurn.textContent = 'Game is a draw!';
+                    return alert('DRAW');
+                } else {
+                    playerTurn.textContent = `${player2}'s turn!`
+                    return currentPlayer = 2
                 }
-                playerTurn.textContent = `${player2}'s turn!`
-                return currentPlayer = 2
+
             } else {
-                row[0].style.backgroundColor = player2Color;
-                playerTurn.textContent = `${player1}'s turn!`
-                return currentPlayer = 1; 
-            }         
+                    row[0].style.backgroundColor = player2Color;
+                    playerTurn.textContent = `${player1}'s turn!`;
+                    if (horizontalCheck() || verticalCheck() || diagonalCheck1() || diagonalCheck2())  {
+                        playerTurn.textContent = `${player2} wins!!!`;
+                        playerTurn.style.color = player2Color;
+                        return (alert(`${player2} WINS!!!!!`));
+                    } else if (drawCheck()) {
+                        playerTurn.textContent = 'Game is a draw!';
+                        return alert('DRAW');
+                    } else {
+                        playerTurn.textContent = `${player2}'s turn!`;
+                        return currentPlayer = 1; 
+                    }
+            
+            }       
             
         }
     }
@@ -77,27 +95,43 @@ function horizontalCheck() {
 function verticalCheck() {
     for (let col = 0; col < 7; col++) {
         for (let row = 0; row < 3; row++) {
-            if (colorMatchCheck(tableRow[row].children[col].style.backgroundColor, tableRow[row+1].children[col].style.backgroundColor, tableRow[row+2].children[col].style.backgroundColor, tableRow[row+3].children[col].style.backgroundColor))
+            if (colorMatchCheck(tableRow[row].children[col].style.backgroundColor, tableRow[row+1].children[col].style.backgroundColor, tableRow[row+2].children[col].style.backgroundColor, tableRow[row+3].children[col].style.backgroundColor)) {
             return true;
+            }
         }
     }
 
 }
 
-function diagonalcheck () {
+function diagonalCheck1() {
     for (let col = 0; col < 4; col++) {
         for (let row = 0; row < 3; row++) {
-            if(colorMatchCheck(tableRow[row].children[col].style.backgroundColor, tableRow[row+1].children[col+1].style.backgroundColor, tableRow[row+2].children[col+2].style.backgroundColor, tableRow[row+3].children[col+3].style.backgroundColor,))
+            if(colorMatchCheck(tableRow[row].children[col].style.backgroundColor, tableRow[row+1].children[col+1].style.backgroundColor, tableRow[row+2].children[col+2].style.backgroundColor, tableRow[row+3].children[col+3].style.backgroundColor,)) {
             return true
+            }
         } 
     }
 }
 
-function diagonalcheck () {
+function diagonalCheck2() {
     for (let col = 0; col < 4; col++) {
         for (let row = 5; row > 2; row--) {
-            if(colorMatchCheck(tableRow[row].children[col].style.backgroundColor, tableRow[row-1].children[col+1].style.backgroundColor, tableRow[row-2].children[col+2].style.backgroundColor, tableRow[row-3].children[col+3].style.backgroundColor,))
+            if(colorMatchCheck(tableRow[row].children[col].style.backgroundColor, tableRow[row-1].children[col+1].style.backgroundColor, tableRow[row-2].children[col+2].style.backgroundColor, tableRow[row-3].children[col+3].style.backgroundColor,)) {
             return true
+            }
         } 
+    }
+}
+
+function drawCheck() {
+    let fullSlot = []
+    for (let i =0; i < tableCell.length; i++) {
+        if (tableCell[i].style.backgroundColor !== 'white') {
+            fullSlot.push(tableCell[i]);
+        }
+    }
+    if (fullSlot.length === tableCell.length.length) {
+            return true;
+    
     }
 }
