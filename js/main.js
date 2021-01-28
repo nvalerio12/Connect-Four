@@ -32,7 +32,7 @@ Array.prototype.forEach.call(tableCell, (cell) => {
     cell.style.backgroundColor = 'white';
 });
 
-//Function
+//Function to get peaces on the board
 function changeColor(event) {
     let column = event.target.cellIndex;
     let row = [];
@@ -58,6 +58,7 @@ function changeColor(event) {
    
 }
 
+// Funtion to declare who wins
 function colorMatchCheck(one, two, three, four) {
     return (one == two && one === three && one === four && one !== 'white');
 }
