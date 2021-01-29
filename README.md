@@ -1,4 +1,4 @@
-# Project-1-for-GA-SEI
+#Connect 4
 
 Project Title: Connect 4
 
