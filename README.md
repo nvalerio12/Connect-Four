@@ -1,4 +1,4 @@
-#Connect 4
+# Connect 4
 
 Project Title: Connect 4
 
@@ -13,12 +13,12 @@ HTML CSS Javascript
 
 Credits:
 To Howard Wexler's the creater of connect 4 amde something so simple fun. 
+codepen alex bergin sampled his code for my game. 
 
 Future development:
 
 3 different load up events
-- First would be player welcome screen
-- Would be able to choose who goes first
+- First would be player welcome screen that lets player add name pre chosen color
 - Whos turn it is will be displayed at bottom of screen
 - Winner screen With huge congraulations with the winner color in it 
 - pop up refresh/restart button 
