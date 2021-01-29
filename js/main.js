@@ -1,7 +1,7 @@
 // Selectors
-var tableRow = document.getElementsByTagName('tr');
-var playerTurn = document.querySelector('.player-turn');
-var tableCell = document.getElementsByTagName('td');
+const tableRow = document.getElementsByTagName('tr');
+const playerTurn = document.querySelector('.player-turn');
+const tableCell = document.getElementsByTagName('td');
 const tableSlot = document.querySelector('.slot');
 const reset = document.querySelector('.rest');
 
@@ -49,7 +49,7 @@ function changeColor(event) {
                     playerTurn.textContent = 'Game is a draw!';
                     return alert('DRAW!');
                 } else {
-                playerTurn.textContent = `${player1}'s turn!`;
+                playerTurn.textContent = `${player2}'s turn!`;
                 return currentPlayer = 2;
                 }
             } else {
@@ -62,7 +62,7 @@ function changeColor(event) {
                     playerTurn.textContent = 'Game is a draw!';
                     return alert('DRAW!');
                 } else {
-                playerTurn.textContent = `${player2}'s turn!`;
+                playerTurn.textContent = `${player1}'s turn!`;
                 return currentPlayer = 1;
                 }
             } 
@@ -79,7 +79,7 @@ function colorMatchCheck(one, two, three, four) {
 //     for (let row = 0; row < tableRow.length; row++){
 //         for (let col =0; col < 4; col++){
 //            if (colorMatchCheck(tableRow[row].children[col].style.backgroundColor,tableRow[row].children[col+1].style.backgroundColor, 
-//                                 tableRow[row].children[col+2].style.backgroundColor, tableRow[row].children[col+3].style.backgroundColor)){
+//                tableRow[row].children[col+2].style.backgroundColor, tableRow[row].children[col+3].style.backgroundColor)){
 //                return true;
 //            }
 //         }
