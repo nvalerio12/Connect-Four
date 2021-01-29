@@ -49,7 +49,7 @@ function changeColor(event) {
                     playerTurn.textContent = 'Game is a draw!';
                     return alert('DRAW!');
                 } else {
-                playerTurn.textContent = `${player2}'s turn!`;
+                playerTurn.textContent = `${player1}'s turn!`;
                 return currentPlayer = 2;
                 }
             } else {
@@ -72,7 +72,7 @@ function changeColor(event) {
 
 // Funtion to declare who wins
 function colorMatchCheck(one, two, three, four) {
-    return(one == two && one === three && one === four && one !== 'white');
+    return(one == two && one === three && one === four && one !== 'white' && one !== undefined);
 }
 
 // function horizontalCheck(){
